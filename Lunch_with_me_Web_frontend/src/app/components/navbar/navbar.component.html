@@ -1,0 +1,89 @@
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a routerLink="/" class="navbar-brand" (click)="onNavigate()">
+        <span><img alt="Brand" src="assets/img/brand.ico" width="34px" height="34px"></span>
+        Lunch With Me
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+        <li *ngIf="authService.loggedIn()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="onNavigate()"><a routerLink="/home">Home</a></li>
+        <li *ngIf="!authService.loggedIn()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="onNavigate()"><a routerLink="/">Home</a></li>
+        <li *ngIf="authService.loggedIn()" routerLinkActive="active" (click)="onNavigate()"><a routerLink="/map">Map</a></li>
+        <!-- <li *ngIf="authService.loggedIn()" routerLinkActive="active" (click)="onNavigate()"><a routerLink="/find">Find</a></li> -->
+        <li *ngIf="authService.loggedIn()" routerLinkActive="active" (click)="onNavigate()"><a routerLink="/users">Friend Requests</a></li>
+        <li *ngIf="authService.loggedIn()" routerLinkActive="active" (click)="onNavigate()"><a routerLink="/chat">Chat</a></li>
+        <!-- <li *ngIf="authService.loggedIn()" routerLinkActive="active" (click)="onNavigate()"><a routerLink="/notification">notificaton</a></li> -->
+        <li *ngIf="authService.loggedIn()" routerLinkActive="active" (click)="onNavigate()">
+          <!-- <a routerLink="/notification">Notification</a> -->
+         <ul class="nav navbar-nav navbar-right">
+           <li class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notification(
+               <b>{{notiCount}}</b>)</a>
+             <ul class="dropdown-menu notify-drop">
+               <div class="notify-drop-title">
+                 <div class="row">
+                   <div class="col-md-6 col-sm-6 col-xs-6">Notificaitons (
+                     <b>{{notiCount}}</b>)</div>
+                   <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                     <a href="" class="rIcon allRead" data-tooltip="tooltip" data-placement="bottom" title="tümü okundu.">
+                       <i class="fa fa-dot-circle-o"></i>
+                     </a>
+                   </div>
+                 </div>
+               </div>
+               <!-- end notify title -->
+               <!-- notify content -->
+               <div class="drop-content" style="padding:0 10%" *ngIf="notiList !== null">
+                 <li *ngFor="let noti of notiList | async" (click)="setSeen(noti.key)">
+                   <!-- <div class="col-md-3 col-sm-3 col-xs-3">
+                       <div class="notify-img">
+                         <img src="http://placehold.it/45x45" alt="">
+                       </div>
+                     </div> -->
+                   <a [href]="noti.payload.val().clickLink">
+                     <div class="col-md-9 col-sm-9 col-xs-9 pd-l0" [class.new-noti]="noti.payload.val().isSeen === false">
+                       <h3>{{noti.payload.val().title}}</h3>
+                       <span>{{noti.payload.val().content}}</span>
+
+
+                       <hr>
+                       <p class="time">{{noti.payload.val().time | date: 'MM/dd @ hh:mm a'}}</p>
+                     </div>
+                   </a>
+                 </li>
+
+               </div>
+               <div class="notify-drop-footer text-center">
+                 <a href="#viewAllLink">
+                   <i class="fa fa-eye"></i>View all</a>
+               </div>
+             </ul>
+           </li>
+         </ul>
+       </li>
+        <!-- <li *ngIf="authService.loggedIn()" routerLinkActive="active" (click)="onNavigate()"><a routerLink="/likes">Super Like</a></li>
+        <li *ngIf="authService.loggedIn()" routerLinkActive="active" (click)="onNavigate()"><a routerLink="/offers">Offers</a></li> -->
+        
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="!authService.loggedIn()" routerLinkActive="active" (click)="onNavigate()"><a routerLink="/login">Login</a></li>
+        <li *ngIf="!authService.loggedIn()" routerLinkActive="active" (click)="onNavigate()"><a routerLink="/register">Register</a></li>
+        <li *ngIf="authService.loggedIn()" routerLinkActive="active" (click)="onNavigate()"><a routerLink="/registerdetails">Profile</a></li>
+        <li *ngIf="authService.loggedIn()"><a href="#" (click)="onLogoutClick()">Logout</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

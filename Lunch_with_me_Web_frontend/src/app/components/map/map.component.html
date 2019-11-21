@@ -1,0 +1,134 @@
+
+
+
+
+  
+
+<div class="container">
+  
+  
+  
+  <div class="row">
+<!--   
+    <div class="col-sm-2" style="background-color:lavenderblush; ">
+    
+    -->
+  
+    
+    <!-- <button  matTooltip="Messages" aria-label="Button that displays a tooltip when focused or hovered over">
+      <span aria-label="Example icon-button with a heart icon">message</span>
+    </button>
+    <br><br>
+  
+    <button  matTooltip="Notifications" aria-label="Button that displays a tooltip when focused or hovered over">
+      <span aria-label="Example icon-button with a heart icon">notification_important</span>
+    </button> <br><br>
+  
+  
+    <button  matTooltip="Super Likes" aria-label="Button that displays a tooltip when focused or hovered over">
+      <span aria-label="Example icon-button with a heart icon" (click)="movetoprofile()">favorite</span>
+    </button> <br><br>
+  
+    <button  (click)="movetosettings()" matTooltip="settings" aria-label="Button that displays a tooltip when focused or hovered over">
+        <span aria-label="Example icon-button with a heart icon">settings</span>
+      </button> <br><br>
+    
+  </div>
+   -->
+          <!-- </div> -->
+          <!-- button group vertical-->
+    <!-- </div> -->
+    <!--left bar-->
+  
+    <div class="col-sm-16" style="background-color:lavender; width:100%;" >
+      
+      <div class="boom">
+      <div class="example-card">
+              <header>
+<!-- pick a time-->
+
+      
+
+                      <h2>Picked time</h2>
+                      <h5 *ngIf="!now && !show">From: {{timeF |  date:'yyyy-MM-dd  H:mm:ss' }}</h5>
+                      <h5 *ngIf="!now && !show">To: {{timeT |  date:'yyyy-MM-dd  H:mm:ss' }}</h5>
+                      <h5 *ngIf="now && !show">At: {{timeF |  date:'yyyy-MM-dd  H:mm:ss' }}</h5>
+                      <h5 *ngIf="now && !show">At: {{timeT |  date:'yyyy-MM-dd  H:mm:ss' }}</h5>
+
+                      <div *ngIf="errorF" class="alert alert-danger" role="alert" >
+                          {{errorF}}
+                        </div>
+                      <h4 *ngIf="show"><label>From &nbsp;:</label><input type="time" name="pickuptime" [(ngModel)]="timeFA"></h4>
+                      <div *ngIf="errorT" class="alert alert-danger" role="alert">
+                          {{errorT}}
+                        </div>
+                      <h4 *ngIf="show"><label>To   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     :</label><input type="time" name="pickuptime" [(ngModel)]="timeTA"></h4>
+                      <button *ngIf="show" type="button" class="btn btn-primary" (click)="saveN()">Save</button>
+                      <button *ngIf="show" type="button" class="btn btn-default" (click)="hideInput()">Cancel</button>
+                      <!-- <p><a href="/find">Change</a></p> -->
+                      <a *ngIf="!show" href="javascript:void(0)"><h4 (click)="showInput()">Click here to pick a time</h4></a>
+              
+                    </header>
+                  
+        
+                    <div style="text-align: center; color:red">                
+                      {{successMessage}}
+                      
+                    </div>
+
+          <div class="col-md-6 contact_sub" style="padding-right: 0;">
+              <!-- <iframe width="100%" height="480px;" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJaY32Qm3KWTkRuOnKfoIVZws&key=AIzaSyAf64FepFyUGZd3WFWhZzisswVx2K37RFY" allowfullscreen></iframe> -->
+                  <form>
+                      <div class="row" style="margin-left: 100px;">
+                      <div class="col-md-6" style="padding-right:0px; padding-top: 2px;">
+                          <div class="form-group">
+                          <input type="text" (keyup)="keyup()" [(ngModel)]='location.keyword' name="keyword" class="form-control" id="searchField" placeholder="Search location" style="height: 40px; font-size: 18px;">
+                          </div>
+                          </div>
+                          <div class="col-md-6" style="margin-bottom: 10px; padding-left:7px">
+                              <button bg="primary" (click)="search();" style="height: 40px; margin-top: 2px; height: 40px; font-size: 14px;  margin-top: 2px; background: #ff9900;">
+                                      <i class="fa fa-search"></i>
+                                      <span> Search</span>
+                                    </button>
+                          </div>
+                      </div>
+                      </form>
+                      
+                      
+                      <div id="map-wrap">
+                          <agm-map [latitude]="location.lat" (mapClick)="placeMarker($event)" 
+                          [longitude]="location.lng" [zoomControl]="true" [zoom]="location.zoom"
+                           [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="placeMarker($event)" 
+                           style="height: 480px; width: 700px" [fullscreenControl]='true' [mapTypeControl]='true'>
+                              <agm-marker [latitude]="location.marker.lat" [longitude]="location.marker.lng" [markerDraggable]="true" (dragEnd)="placeMarker($event)">
+                              <agm-info-window>Select Your Location</agm-info-window>
+                              </agm-marker>
+                          </agm-map>
+                      </div>
+              </div>
+              <button bg="primary" (click)="submit();" style="height: 40px; margin-top: 10px; margin-left:50%; height: 40px; font-size: 14px; background: #ff9900;" *ngIf="timeF && timeT && !show">
+                      <i class="fa fa-search"></i>
+                      <span> Submit</span>
+                    </button>
+                    <button bg="primary" style="height: 40px; margin-top: 10px; margin-left:50%; height: 40px; font-size: 14px; background: #3a2403;" *ngIf="!(timeF && timeT) || show" disabled>
+                      <i class="fa fa-search"></i>
+                      <span> Submit</span>
+                    </button>
+                    
+     
+            
+            
+        </div>
+  
+  
+  </div>
+  </div> <!-- right bar-->
+  
+  </div> <!--row-->
+  
+    
+    <!--h1 class="display-4">Hello, {{username}}!</h1>-->
+  
+  </div>
+  
+  

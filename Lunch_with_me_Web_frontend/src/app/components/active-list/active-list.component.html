@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <h3 class="text-center" (click)="onUserClick('a')">Chats</h3>
+
+  <ul class="list-group">
+    <!-- <a href="#" class="list-group-item" (click)="onUserClick('chat-room')" [ngClass]="{active: current == 'chat-room'}">
+      <span class="glyphicon glyphicon-comment" aria-hidden="true" style="margin-right: 2px"></span>
+      Chat Room
+    </a> -->
+    <a *ngFor="let user of users"
+      href="/chat/{{user.username}}"
+      class="list-group-item"
+      [ngClass]="{active: user.username == current, online: user.online}"
+      >
+      <a *ngFor="let a of user.friends">
+        <p>{{a.username}}</p>
+      </a>
+        <!-- <img src="assets/img/generic-avatar.png" class="img-circle" width="60px" *ngIf="!user.image">
+          <img src="{{user.image}}" class="img-circle" width="30px" *ngIf="user.image"> -->
+        
+        {{user.username}} 
+        <span *ngIf="user.online" class="glyphicon glyphicon-ok-sign pull-right" aria-hidden="true" style="padding-top: 5px"></span>
+    </a>
+  </ul>
+
+  
+
+</div>

@@ -1,0 +1,22 @@
+.row{
+    background: linear-gradient(to top right, #deeaee 0%, #ffffff 100%);
+    height: 100%;
+    padding-bottom:15px;
+}
+
+.col-sm-3{
+    position: relative;
+    background-color: #9494b8;
+    //   margin-left: 50%;
+    border-radius: 20px;
+    padding-bottom: 48px;
+    
+  }
+  .btn btn-primary{
+      margin-left: 50px;
+  }
+.page-header{
+  font-family: "Times New Roman", Times, serif;
+  margin-left: 8%;
+  font-size: 40px;
+}

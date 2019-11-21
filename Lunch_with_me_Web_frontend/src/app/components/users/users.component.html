@@ -1,0 +1,99 @@
+<div class="background">
+
+<div class="loader-container" *ngIf="loader">
+    <div class="loader"></div>
+  </div>
+
+  <div class="top">
+      <h2 style="color: black;font-size: 38px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"><b>Request List</b><br><br></h2>
+    </div>
+<div class="container" *ngIf="!loader">
+    
+    <div class="row">
+  
+      <div class="shadow">
+        <div *ngFor="let u of user.requests">
+        <div class="col-sm-12" >
+          <div class="col-sm-2">
+              <img src="https://www.infrascan.net/demo/assets/img/avatar5.png" class="img-circle" width="100px" *ngIf="!u.image">
+              <img src="{{u.image}}" class="img-circle" width="100px" height="100px" *ngIf="u.image">
+          </div>
+          <div class="text-center">
+          <div class="col-sm-8" >
+            <br>
+            <h4><a href="/profile?username={{u.username}}" style="color:#000066; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 35px"><b>{{u.username}}</b></a></h4>
+          </div>
+          </div>
+          <div class="col-sm-2"> 
+            <br><br>         
+            <!-- <a href="javascript:void(0)" (click)="acceptRequest(u._id, u.username)" style="color: black;">Accept</a> -->
+
+
+            <a ref="javascript:void(0)" (click)="acceptRequest(u._id, u.username)"  style="color: black;"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-check" style="size: 20px"></span>&nbsp;&nbsp; Accept</button></a>
+
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <hr />
+      </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- 
+  <div class="container" *ngIf="!loader">
+      <div class="top">
+        <h2 style="color: black">Friend's List</h2>
+      </div>
+      <div class="row">
+    
+        <div class="shadow">
+          <div *ngFor="let u of user.friends">
+          <div class="col-sm-12" >
+            <div class="col-sm-2">
+              <img src="https://www.infrascan.net/demo/assets/img/avatar5.png" class="img-circle" width="60px" *ngIf="!u.image">
+              <img src="{{u.image}}" class="img-circle" width="60px" *ngIf="u.image">
+            </div>
+            <div class="col-sm-8">
+              <h4><a href="/profile?username={{u.username}}" style="color: black;">{{u.username}}</a></h4>
+            </div>
+            <div class="col-sm-2">  
+              <a ref="javascript:void(0)" style="color: black;" routerLink="/chat/{{u.username}}">Chat</a>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <hr />
+        </div>
+        </div>
+      </div>
+    </div>
+
+<div class="container" *ngIf="!loader">
+  <div class="top">
+    <h2 style="color: black">Find Friends</h2>
+  </div>
+  <div class="row">
+
+    <div class="shadow">
+      <div *ngFor="let u of userList">
+      <div class="col-sm-12" >
+        <div class="col-sm-2">
+          <img src="https://www.infrascan.net/demo/assets/img/avatar5.png" class="img-circle" width="60px" *ngIf="!u.image">
+          <img src="{{u.image}}" class="img-circle" width="60px" *ngIf="u.image">
+        </div>
+        <div class="col-sm-8">
+          <h4><a href="/profile?username={{u.username}}" style="color: black;">{{u.username}}</a></h4>
+        </div>
+        <div class="col-sm-2">          
+          <a ref="javascript:void(0)" (click)="sendRequest(u._id, u.username)" *ngIf="!u.request" style="color: black;">Send Request</a>
+          <a ref="javascript:void(0)" style="color: black;" *ngIf="u.request">Request Sent</a>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <hr />
+    </div>
+    </div>
+  </div>
+</div> -->
+

@@ -1,0 +1,70 @@
+<!-- <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head> -->
+<div class="image">
+    <img src="assets/img/11.png" width="100%" height="100%">
+</div>
+
+<div class="row">
+    <div class="col-sm-3">
+<!-- <div class="container">
+     -->
+    <h2 class="page-header text-center"><b>Login</b></h2>
+  
+    <form [formGroup]="loginForm"
+      (ngSubmit)="onLoginSubmit()"
+      >
+  
+      <div class="form-group">
+        <label for="username">Username</label>
+  
+        <input type="text" name="username" class="form-control"
+          id="username"
+          placeholder="Enter your username"
+          formControlName="username"
+          autofocus="true"
+          >
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+  
+        <input type="password" name="password" class="form-control"
+          id="password"
+          placeholder="Enter your password"
+          formControlName="password"
+          >
+      </div>
+  
+      <div class="form-group">
+        <button [disabled]="loginForm.invalid"
+          type="submit"
+          class="btn btn-primary btn-block"
+          name="login"
+          >Login
+        </button>
+      </div>
+    
+      <div class="text-center">
+      
+        <a [routerLink]="['/forgotpass']" style="color:#ffffff">forgot password?</a> <br>
+        <a [routerLink]="['/register']" style="color: #ffffff">Don't have an account?</a>
+      </div>
+  
+     
+    </form>
+    <!-- <form>
+    <div class="panel-body">
+      <div class="form-group text-center">
+        <button class="fa fa-facebook" (click)="signIn('facebook')" >  facebook</button>
+    
+      </div>
+      <div class="form-group text-center">
+        <button class="fa fa-google" (click)="signIn('google')">  google</button>
+      </div>
+  </div>
+
+ 
+  </form> -->
+  </div>
+  </div>
+  

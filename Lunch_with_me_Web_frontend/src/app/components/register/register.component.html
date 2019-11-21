@@ -1,0 +1,72 @@
+
+<div class="row">
+    <div class="col-sm-6" style="margin-left: 8%;">
+        <img src="assets/img/register.jpeg" height="600px" width="500px">
+    </div>
+    <div class="col-sm-3">
+  <h2 class="page-header"><b>Create an account</b></h2>
+
+  <form [formGroup]="registerForm"
+    (ngSubmit)="onRegisterSubmit()"
+    >
+
+  <div class="form-group">
+    <label for="username">Username</label>
+
+    <input type="text" name="username" class="form-control"
+      id="username"
+      placeholder="Enter your username"
+      formControlName="username"
+      autofocus="true"
+      >
+      <span style="text-align: center; color:red" *ngIf="isValid('username')">Username should contain atleast 4 letters</span>
+
+  </div>
+
+  <div class="form-group">
+    <label for="password">Email</label>
+
+    <input required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" type="email" name="email" class="form-control"
+      id="email"
+      placeholder="Enter your Email"
+      formControlName="email"
+      >
+      <span style="text-align: center; color:red" *ngIf="isValid('email')">Entered email is invalid</span>
+  </div>
+  
+  <div class="form-group">
+    <label for="password">Password</label>
+
+    <input type="password" name="password" class="form-control"
+      id="password"
+      placeholder="Enter your password"
+      formControlName="password"
+      >
+      <span style="text-align: center; color:red" *ngIf="isValid('password')">Password must contain atleast 4 charactors</span>
+  </div>
+
+  <div class="form-group">
+    <label for="confirmPass">Confirm password</label>
+
+      <input type="password" name="confirmPass" class="form-control"
+      id="confirmPass"
+      placeholder="Confirm password"
+      formControlName="confirmPass"
+      >
+  </div>
+
+  <div class="form-group">
+    <button [disabled]="registerForm.invalid"
+      type="submit"
+      class="btn btn-primary btn-block"
+      name="register"
+      >Register
+    </button>
+  </div>
+
+  <a [routerLink]="['/login']" style="color:white">Already have an account?</a>
+
+  </form>
+
+</div>
+</div>

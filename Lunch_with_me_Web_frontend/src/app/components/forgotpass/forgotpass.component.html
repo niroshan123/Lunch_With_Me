@@ -1,0 +1,46 @@
+
+ <div class="container">
+  <h2 class="page-header">Password Reset</h2>
+
+  <form [formGroup]="myForm" >
+
+    
+         
+      <div *ngIf="msg" class="alert alert-success" role="alert">
+{{msg}}
+      </div>    
+
+
+      <div class="form-group">
+        <label for="password">Email</label>
+    
+        <input required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" type="email" name="email" class="form-control"
+          id="email"
+          placeholder="Enter your Email"
+          formControlName="email"
+          >
+          <span style="text-align: center; color:red" *ngIf="isValid('email')">Entered email is invalid</span>
+      </div>
+
+
+  <!-- <div class="form-group">
+    <label for="password">Email</label>
+
+    <input type="email" name="email" class="form-control" id="email" placeholder="Enter your Email" formControlName="email" >
+    <span *ngIf="isValid('email')">Entered email is invalid</span>
+  </div>
+          -->
+  <div style="text-align: center; color:red">                
+    {{successMessage}}
+  </div>
+
+  
+         
+        
+
+          <div class="form-group"> 
+             <button class="btn btn-primary"  (click)="abc()" >Submit</button>
+          </div>
+         
+      </form>
+  </div>

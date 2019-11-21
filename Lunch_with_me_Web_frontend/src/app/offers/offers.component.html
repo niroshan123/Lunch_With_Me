@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-lg-2 active-list-container" >
+
+      <div *ngFor="let u of user.friends">
+        <div class="col-sm-12" >
+          <div class="col-sm-2">
+            <img src="https://www.infrascan.net/demo/assets/img/avatar5.png" class="img-circle" width="60px" *ngIf="!u.image">
+            <img src="{{u.image}}" class="img-circle" width="60px" *ngIf="u.image">
+          </div>
+          <div class="col-sm-7" style="padding-left: 30px;">
+            <h4><a style="color: black;" href="/profile?username={{u.username}}">{{u.username}}</a></h4>
+          </div>
+          <div class="col-sm-2">  
+            <a ref="javascript:void(0)" style="color: black;" routerLink="/chat/{{u.username}}">Chat</a>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <hr />
+      </div>
+    </div>
+<!-- Matches -->
+    <div class="col-sm-9 col-lg-10 column">
+      <div class="panel panel-primary chat-container">
+        <div class="panel-heading text-center clearfix">
+          <h2>Matches</h2>
+        </div>
+    
+        <div *ngFor="let u of userList">
+          <div class="col-sm-12" >
+            <div class="col-sm-2">
+                <img src="https://www.infrascan.net/demo/assets/img/avatar5.png" class="img-circle" width="60px" *ngIf="!u.image">
+                <img src="{{u.image}}" class="img-circle" width="80px" height="80px" *ngIf="u.image">
+            </div>
+            <div class="col-sm-8">
+              <h4><a style="color: black;" href="/profile?username={{u.username}}"><a>{{u.username}}</a> <br></a></h4>
+              <h4><p style="color: black;">{{u.message}}</p></h4>
+            
+            </div>
+            <div class="col-sm-2">          
+              <a ref="javascript:void(0)" (click)="sendRequest(u._id, u.username)" *ngIf="!u.request" style="color: black;"><button type="button" class="btn btn-info">Like</button></a>
+              <a ref="javascript:void(0)" style="color: black;" *ngIf="u.request"><button type="" class="btn btn-info">Request sent</button></a>
+              <a ref="javascript:void(0)" href="/chat/{{u.username}}" *ngIf="!u.superlike" style="color: black;"><button type="button" class="btn btn-info">Super Like</button></a>
+              <!-- <a ref="javascript:void(0)" style="color: black;" *ngIf="u.request">Request Sent</a> -->
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <hr />
+        </div>
+      
+        
+      </div>
+
+      
+    </div>
+  </div>
+
+</div>
+
+
