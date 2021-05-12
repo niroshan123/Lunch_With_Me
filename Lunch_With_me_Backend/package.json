@@ -20,7 +20,7 @@
     "jsonwebtoken": "7.4",
     "mongoose": "4.10",
     "morgan": "1.8",
-    "nodemailer": "^2.7.2",
+    "nodemailer": "^6.4.16",
     "passport": "0.3",
     "passport-jwt": "2.2",
     "socket.io": "1.7"
