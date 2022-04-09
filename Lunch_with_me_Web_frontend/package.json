@@ -30,7 +30,7 @@
     "bootstrap": "^3.4.1",
     "core-js": "^2.4.1",
     "firebase": "^4.5.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ngx-bootstrap": "^5.1.0",
     "open-iconic": "^1.1.1",
     "promise-polyfill": "8.1.3",
