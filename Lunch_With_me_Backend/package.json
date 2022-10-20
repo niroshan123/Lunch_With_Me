@@ -18,7 +18,7 @@
     "express": "4.15",
     "firebase-admin": "^8.7.0",
     "jsonwebtoken": "7.4",
-    "mongoose": "4.10",
+    "mongoose": "4.13",
     "morgan": "1.8",
     "nodemailer": "^2.7.2",
     "passport": "0.3",
