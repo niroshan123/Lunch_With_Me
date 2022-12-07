@@ -15,7 +15,7 @@
     "bluebird": "3.5",
     "body-parser": "1.17",
     "cors": "2.8",
-    "express": "4.15",
+    "express": "4.17",
     "firebase-admin": "^8.7.0",
     "jsonwebtoken": "7.4",
     "mongoose": "4.10",
